@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,6 +19,10 @@
     {{#if scoreboard}}
       <meta property="og:title" content="BSCS - Scoreboard {{scoreboard.name}}"/>
       <meta property="og:og:description" content="{{scoreboard.stats.players}} Players - {{scoreboard.stats.totalRankedPlayCount}} total ranked plays"/>
+      <meta property="og:type" content="article">
+    {{else}}
+      <meta property="og:title" content="BSCS - Beatsaber Saber "/>
+      <meta property="og:og:description" content="Custom Scoreboards for beatsaber"/>
       <meta property="og:type" content="article">
     {{/if}}
   </head>
