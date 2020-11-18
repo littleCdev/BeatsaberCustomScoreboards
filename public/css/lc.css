@@ -1,0 +1,52 @@
+.inline{
+  display: inline;
+}
+
+.btn-normal{
+  text-transform: none!important;
+}
+
+.card-image{
+  max-width: 184px!important;
+  max-height: 184px!important;
+}
+.leftcolor,
+.player-card{
+  background-color: rgba(255, 0, 0, 0.8)!important;
+}
+
+.rightcolor{
+  background-color: rgba( 0,50,150, 0.9)!important;
+}
+.card{
+  max-height: 184px
+}
+
+img.logo{
+    max-height: 64px;
+}
+.second{
+  padding-left: 64px!important;
+  animation: glow 100s ease-in infinite;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+body {
+  background: url("/static/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}

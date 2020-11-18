@@ -1,0 +1,42 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <div class="row center">
+      <h5 class="header col s12 white-text">Create a new scorebard</h5>
+
+      {{#if error}}
+        <h5 class="col s12 orange-text">
+          {{error}}
+        </h5>
+      {{/if}}
+    </div>
+    <div class="row">
+      <form class="col s12 m8 offset-m2" action="/scoreboard/new" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Scoreboardname" name="name" type="text" class="white-text">
+            <label class="active white-text">Name</label>
+          </div>
+          <div class="input-field col s12">
+            <p>
+              <label>
+                <input type="checkbox" name="public"/>
+                <span class="white-text">Public <small>every player can add themself to this scorebard</small></span>
+              </label>
+            </p>
+          </div>
+          <div class="input-field col s12">
+            <input placeholder="my bs dudes" name="description" type="text" class="white-text">
+            <label class="active white-text">Description</label>
+          </div>
+          <div class="input-field col s12">
+            <button type="submit" class="btn-flat black-text white btn-normal right">
+              add scorebard
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br><br>
+  </div>
+</div>

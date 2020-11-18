@@ -1,0 +1,95 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <div class="row center">
+      <h5 class="header col s12 white-text">{{scoreboard.name}}</h5>
+      <p class="white-text col s12 center">
+        {{scoreboard.description}}
+      </p>
+    </div>
+    <div class="row">
+
+      {{#unless user}}
+      <div class="col s12 center">
+        <a class="btn-flat btn-normal white" href="/auth/steam">Sign with Steam to add yourself to this scoreboard</a>
+      </div>
+      {{/unless}}
+
+      {{#unless scoreboard.isOwner}}
+        {{#if scoreboard.isInside}}
+          <form method="post" action="/scoreboard/{{scoreboard._id}}/removeself" class="col s12">
+            <button type="submit" class="btn-flat white btn-normal right">
+              Remove yourself from this scoreboard
+            </button>
+          </form>
+        {{/if}}
+      {{/unless}}
+
+      {{#if user}}
+        {{#unless scoreboard.isInside}}
+          {{#if scoreboard.public}}
+            <form method="post" action="/scoreboard/{{scoreboard._id}}/addself" class="col s12">
+              <button type="submit" class="btn-flat white btn-normal right">
+                Add yourself to this scoreboard
+              </button>
+            </form>
+          {{/if}}
+        {{/unless}}
+      {{/if}}
+
+      {{#if scoreboard.isOwner}}
+      <form method="post" action="/scoreboard/{{scoreboard._id}}/addplayer" class="col s12">
+        <div class="input-field col s12">
+          <input placeholder="scoresaber url" name="url" type="text">
+          <label class="active">Scoresaber url</label>
+        </div>
+        <button type="submit" class="btn-flat white right btn-normal">
+          Add player
+        </button>
+      </form>
+      {{/if}}
+
+      {{#if error}}
+        <h5 class="red">{{error}}</h5>
+      {{/if}}
+
+      {{#if scoreboard}}
+        {{#each scoreboard.players}}
+          <div class="col m12">
+             <div class="card player-card horizontal">
+                <div class="card-image">
+                  <img src="https://new.scoresaber.com{{{this.playerInfo.avatar}}}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content white-text">
+
+                      <span class="card-title">
+                        <h5 class="inline">#{{@index}}</h5>
+                        {{this.playerInfo.playerName}}
+                        {{#if ../scoreboard.isOwner}}
+                          <form method="post" action="/scoreboard/{{../scoreboard._id}}/removeplayer" class="right">
+                            <input type="hidden" name="player" value="{{this.playerInfo.playerId}}">
+                            <button type="submit" class="btn-flat">
+                              <i class="material-icons white-text" title="remove this player">delete</i>
+                            </button>
+                          </form>
+                          {{/if}}
+                      </span>
+                      <p>
+                        global   #{{this.playerInfo.rank}}<br>
+                        national {{this.playerInfo.country}} #{{this.playerInfo.countryRank}}
+                      </p>
+                    </div>
+                    <div class="card-action right-align">
+                    <a href="https://scoresaber.com/u/{{{this.playerInfo.playerId}}}" class="white-text">scoresaber</a>
+                    </div>
+                </div>
+           </div>
+         </div>
+        {{/each}}
+      {{/if}}
+
+    </div>
+    <br><br>
+  </div>
+</div>

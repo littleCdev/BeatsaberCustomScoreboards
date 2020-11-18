@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/lc.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/bscs.png">
+    {{#if title}}
+      <title>BSCS - {{title}}</title>
+    {{else}}
+      <title>BSCS - Custom scorebards for beatsaber</title>
+    {{/if}}
+
+    {{#if scoreboard}}
+      <meta property="og:title" content="BSCS - Scoreboard {{scoreboard.name}}"/>
+      <meta property="og:og:description" content="{{scoreboard.stats.players}} Players - {{scoreboard.stats.totalRankedPlayCount}} total ranked plays"/>
+      <meta property="og:type" content="article">
+    {{/if}}
+  </head>
+
+  <body class="">
+    <header>
+      <nav class="rightcolor" role="navigation">
+          <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">
+              <img src="/static/bscs.png" class="logo">
+            </a>
+            <a href="/" class="brand-logo second">
+              Beatsaber scoreboards
+            </a>
+            <ul class="right hide-on-med-and-down">
+              {{#if user}}
+                <li><a href="/">Hello {{user.displayName}}</a></li>
+                <li><a href="/logout">Logout</a></li>
+              {{else}}
+                <li><a href="/auth/steam">Sign On with Steam</a></li>
+              {{/if}}
+            </ul>
+          </div>
+        </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+    <footer class="page-footer rightcolor">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Custom beatsaber scoreboards</h5>
+            <p class="grey-text text-lighten-4">
+              made with <3 by littlecheetah<br>
+              thanks at scoresaber for their api!
+            </p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="white-text" href="https://steamcommunity.com/id/littlecheetah/" target="_blank">Steam</a></li>
+              <li><a class="white-text" href="https://github.com/littleCdev" target="_blank">Github</a></li>
+              <li><a class="white-text" href="https://scoresaber.com/u/76561198011281298" target="_blank">Scoresaber</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+      </div>
+    </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "webport":8085,
+  "bindip":"0.0.0.0",
+  "mongoconnection":"mongodb://localhost:27017/beatsaber-custom-scoreboard-dev",
+
+  "sessionname":"bscs",
+  "sessionsecret":"copy cat",
+
+  "steamReturnUrl":"http://127.0.0.1:8085/auth/steam/return",
+  "steamRelam":"http://127.0.0.1:8085/",
+  "steamApiKey":""
+}

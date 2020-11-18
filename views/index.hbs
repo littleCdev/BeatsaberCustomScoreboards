@@ -1,0 +1,63 @@
+{{#if user}}
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center white-text">Hi {{user.displayName}}</h1>
+    <div class="row center">
+      <h5 class="header col s12 light white-text">Your Scoreboards</h5>
+      <a href="/scoreboard/new" class="white-text">
+        Create a new scoreboard
+      </a>
+    </div>
+    <div class="row">
+      {{#each userScoreboards}}
+
+        <a href="/scoreboard/{{{this._id}}}" class="white-text">
+          <div class="col m6">
+             <div class="card  rightcolor">
+               <div class="card-content white-text">
+                 <span class="card-title">{{this.name}}</span>
+                 <p>
+                   {{this.description}}
+                   <hr/>
+                   {{this.stats.players}} Players <br>
+                   {{this.stats.totalRankedPlayCount}} total ranked plays<br>
+                   {{this.stats.allPP}} total PP collected <br>
+                 </p>
+               </div>
+           </div>
+         </div>
+       </a>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/if}}
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <div class="row center">
+      <h5 class="header col s12 white-text">Latest Scoreboards</h5>
+    </div>
+    <div class="row">
+      {{#each latestScoreboards}}
+        <a href="/scoreboard/{{{this._id}}}" class="white-text">
+          <div class="col m6">
+             <div class="card rightcolor">
+               <div class="card-content white-text">
+                 <span class="card-title">{{this.name}}</span>
+                 <p>
+                   {{this.description}}
+                   <hr/>
+                   {{this.stats.players}} Players <br>
+                   {{this.stats.totalRankedPlayCount}} total ranked plays<br>
+                   {{this.stats.allPP}} total PP collected <br>
+                 </p>
+               </div>
+           </div>
+         </div>
+       </a>
+      {{/each}}
+    </div>
+  </div>
+</div>
