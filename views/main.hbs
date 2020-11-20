@@ -18,14 +18,16 @@
 
     {{#if scoreboard}}
       <meta property="og:title" content="BSCS - Scoreboard {{scoreboard.name}}"/>
-      <meta property="og:og:description" content="{{scoreboard.stats.players}} Players - {{scoreboard.stats.totalRankedPlayCount}} total ranked plays"/>
+      <meta property="og:description" content="{{scoreboard.stats.players}} Players - {{scoreboard.stats.totalRankedPlayCount}} total ranked plays"/>
       <meta property="og:type" content="article">
       <meta property="og:url" content="https://bscs.l0calhost.org/scoreboard/{{scoreboard._id}}" />
+      <meta property="og:image" content="/static/bscs.png" />
     {{else}}
       <meta property="og:title" content="BSCS - Beatsaber Saber "/>
-      <meta property="og:og:description" content="Custom Scoreboards for beatsaber"/>
+      <meta property="og:description" content="Custom Scoreboards for beatsaber"/>
       <meta property="og:type" content="article">
       <meta property="og:url" content="https://bscs.l0calhost.org/" />
+      <meta property="og:image" content="/static/bscs.png" />
     {{/if}}
   </head>
 
