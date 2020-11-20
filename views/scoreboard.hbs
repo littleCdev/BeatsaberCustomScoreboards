@@ -55,19 +55,19 @@
 
       {{#if scoreboard}}
         {{#each scoreboard.players}}
-          <div class="col m12">
-             <div class="card player-card horizontal">
+          <div class="col m12 w100">
+             <div class="card player-card horizontal ">
                 <div class="card-image">
                   <img src="https://new.scoresaber.com{{{this.playerInfo.avatar}}}">
                 </div>
-                <div class="card-stacked">
+                <div class="card-stacked ">
                     <div class="card-content white-text">
 
                       <span class="card-title">
                         <h5 class="inline">#{{@index}}</h5>
                         {{this.playerInfo.playerName}}
                         {{#if ../scoreboard.isOwner}}
-                          <form method="post" action="/scoreboard/{{../scoreboard._id}}/removeplayer" class="right">
+                          <form method="post" action="/scoreboard/{{../scoreboard._id}}/removeplayer" class="right hide-on-small-and-down">
                             <input type="hidden" name="player" value="{{this.playerInfo.playerId}}">
                             <button type="submit" class="btn-flat">
                               <i class="material-icons white-text" title="remove this player">delete</i>
@@ -81,7 +81,15 @@
                       </p>
                     </div>
                     <div class="card-action right-align">
-                    <a href="https://scoresaber.com/u/{{{this.playerInfo.playerId}}}" class="white-text">scoresaber</a>
+                      {{#if ../scoreboard.isOwner}}
+                        <form method="post" action="/scoreboard/{{../scoreboard._id}}/removeplayer" class="hide-on-med-and-up left">
+                          <input type="hidden" name="player" value="{{this.playerInfo.playerId}}">
+                          <button type="submit" class="btn-flat">
+                            <i class="material-icons white-text" title="remove this player">delete</i>
+                          </button>
+                        </form>
+                        {{/if}}
+                      <a href="https://scoresaber.com/u/{{{this.playerInfo.playerId}}}" class="white-text right">scoresaber</a>
                     </div>
                 </div>
            </div>

@@ -1,3 +1,7 @@
+.w100{
+  width: 100%;
+}
+
 .inline{
   display: inline;
 }
@@ -5,11 +9,25 @@
 .btn-normal{
   text-transform: none!important;
 }
-
 .card-image{
-  max-width: 184px!important;
-  max-height: 184px!important;
+  width: 184px!important;
+  height: 184px!important;
 }
+
+@media (max-width: 600px) {
+  .card-image{
+    width: 100px!important;
+    height: 100px!important;
+  }
+}
+@media (min-width: 600px) {
+  .card{
+    max-height: 184px
+  }
+}
+
+
+
 .leftcolor,
 .player-card{
   background-color: rgba(255, 0, 0, 0.8)!important;
@@ -18,13 +36,16 @@
 .rightcolor{
   background-color: rgba( 0,50,150, 0.9)!important;
 }
-.card{
-  max-height: 184px
-}
 
 img.logo{
     max-height: 64px;
 }
+@media (max-width: 600px) {
+  img.logo{
+      max-height: 56px;
+  }
+}
+
 .second{
   padding-left: 64px!important;
   animation: glow 100s ease-in infinite;
