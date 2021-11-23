@@ -85,6 +85,11 @@ class Scoreboard {
 
         // sort by global score
         this.players.sort((a, b) => (a.playerInfo.rank < b.playerInfo.rank ? -1 : 1))
+
+        // players with rank 0 are inactive, move those to the end of the array... [(]1,2,3,14,100,500,0,0,0]
+        let inactiveAtEnd = this.players.filter((el)=>{return el.playerInfo.rank > 0;}).concat(this.players.filter((el)=>{return el.playerInfo.rank == 0}));
+
+        this.players = inactiveAtEnd;
     }
 
     async addPlayerByUrl(url) {
