@@ -63,6 +63,7 @@ body {
   background: url("/static/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
