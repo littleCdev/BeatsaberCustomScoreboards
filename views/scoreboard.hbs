@@ -64,7 +64,9 @@
                     <div class="card-content white-text">
 
                       <span class="card-title">
-                        <h5 class="inline">#{{@index}}</h5>
+                        {{#unless this.playerInfo.inactive}}
+                          <h5 class="inline">#{{inc @index}}</h5>
+                        {{/unless }}
                         {{this.playerInfo.playerName}}
                         {{#if ../scoreboard.isOwner}}
                           <form method="post" action="/scoreboard/{{../scoreboard._id}}/removeplayer" class="right hide-on-small-and-down">
@@ -76,8 +78,12 @@
                           {{/if}}
                       </span>
                       <p>
-                        global   #{{this.playerInfo.rank}}<br>
-                        national {{this.playerInfo.country}} #{{this.playerInfo.countryRank}}
+                        {{#if this.playerInfo.inactive}}
+                          User inactive
+                        {{else}}
+                          global   #{{this.playerInfo.rank}}<br>
+                          national {{this.playerInfo.country}} #{{this.playerInfo.countryRank}}
+                        {{/if}}
                       </p>
                     </div>
                     <div class="card-action right-align">

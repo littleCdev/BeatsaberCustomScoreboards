@@ -64,11 +64,18 @@ app.use(bodyParser.urlencoded({
 
 // configure Express
 var exphbs = require('express-handlebars');
+
+
 app.set('views', __dirname + '/views');
 app.engine('.hbs', exphbs({
     layoutsDir: __dirname + '/views/',
     extname: '.hbs',
-    defaultLayout: "main"
+    defaultLayout: "main",
+    helpers:{
+        inc:function(value,options){
+            return parseInt(value)+1;
+        }
+    }
 }));
 app.set('view engine', '.hbs');
 
